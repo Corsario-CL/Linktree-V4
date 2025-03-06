@@ -6,6 +6,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Corsario_CL | Javier@s99.cl">
+    <meta name="keywords" content="Corsario_CL, Javier Saavedra, Data Scientist, Software Engineer">
+    <meta name="author" content="Corsario_CL">
+    <meta property="og:title" content="Corsario_CL - Data Scientist & Software Engineer">
+    <meta property="og:description" content="Personal links and portfolio of Javier Saavedra (Corsario_CL)">
+    <meta property="og:image" content="assets/images/favicon.ico">
+    <meta name="theme-color" content="#121212">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
@@ -19,6 +25,7 @@
             margin: 0;
             padding: 0;
             overflow-x: hidden;
+            transition: background-color 0.3s ease, color 0.3s ease;
         }
 
         header {
@@ -35,12 +42,15 @@
             color: #e5ebf1;
             font-size: 2em;
             margin: 15px;
-            transition: transform 0.3s ease-in-out;
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            display: inline-flex;
+            align-items: center;
+            text-decoration: none;
         }
 
         .iconos a:hover {
             color: #b3ff00;
-            transform: rotate(360deg);
+            transform: scale(1.2) rotate(360deg);
         }
 
         footer {
@@ -121,10 +131,88 @@
             }
         }
 
+        /* Tema claro */
+        [data-theme="light"] {
+            background-color: #f8f9fa;
+            color: #2d3436;
+        }
+
+        [data-theme="light"] header,
+        [data-theme="light"] footer {
+            background-color: #ffffff;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+        }
+
+        [data-theme="light"] .btn-custom {
+            background-color: #00b894;
+            border-color: #00b894;
+            color: #ffffff;
+        }
+
+        [data-theme="light"] .btn-custom:hover {
+            background-color: #00a38c;
+            border-color: #009c84;
+        }
+
+        [data-theme="light"] .iconos a {
+            color: #2d3436;
+        }
+
+        [data-theme="light"] .iconos a:hover {
+            color: #00b894;
+        }
+
+        [data-theme="light"] #particles-js {
+            opacity: 0.6;
+        }
+
+        [data-theme="light"] .project-card {
+            background: rgba(255, 255, 255, 0.9);
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        [data-theme="light"] h1,
+        [data-theme="light"] h2,
+        [data-theme="light"] h3 {
+            color: #2d3436;
+        }
+
+        [data-theme="light"] a {
+            color: #00b894;
+        }
+
+        [data-theme="light"] a:hover {
+            color: #00a38c;
+            text-decoration: none;
+        }
+
+        .animate-hover {
+            transition: transform 0.3s ease;
+        }
+
+        .animate-hover:hover {
+            transform: translateY(-5px);
+        }
+
+        * {
+            transition: background-color 0.3s ease, 
+                      color 0.3s ease, 
+                      box-shadow 0.3s ease, 
+                      transform 0.3s ease;
+        }
+
     </style>
+    <script>
+        // Agregar esta función al inicio del head
+        function isDaytime() {
+            const hours = new Date().getHours();
+            return hours >= 7 && hours < 20; // Día entre 7:00 y 20:00
+        }
+    </script>
 </head>
 
 <body>
+
     <div id="particles-js"></div>
 
     <header>
@@ -136,20 +224,19 @@
         <div class="container">
             <h1>Javier I. Saavedra Benítez</h1>
             <h3>Data Scientist, Software Engineer, jet-setter, geek & gamer.</h3>
-            <div class="iconos mt-4">
-                <a href="https://es.wikipedia.org/wiki/Usuario:Corsario_CL" class="fab fa-wikipedia-w"></a>
-                <a href="https://play.google.com/store/apps/dev?id=5378432799714164547&hl=es_CL" class="fab fa-google-play"></a>
-                <a href="https://www.linkedin.com/in/corsario-cl/" class="fab fa-linkedin"></a>
-                <a href="https://twitter.com/Corsario_CL" class="fab fa-twitter-square"></a>
-                <a href="https://corsario-cl-world-blog.tumblr.com" class="fab fa-tumblr-square"></a>
-                <a href="https://steamcommunity.com/id/Corsario_CL/" class="fab fa-steam-square"></a>
-                <a href="https://github.com/Corsario-CL" class="fab fa-github"></a>
-                <a href="https://open.spotify.com/playlist/5QVYWH0mSYySkAPzLQ5L7z" class="fab fa-spotify"></a>
-                <a href="https://www.instagram.com/corsario_cl/" class="fab fa-instagram"></a>
-                <a href="https://es.foursquare.com/omnespsx" class="fab fa-foursquare"></a>
-                <a href="https://cl.pinterest.com/Corsario_CL/" class="fab fa-pinterest-square"></a>
-                <a href="https://www.youtube.com/@Corsario_CL" class="fab fa-youtube-square"></a>
-                <a href="https://www.reddit.com/user/xagentpy/" class="fab fa-reddit-square"></a>
+            <div class="iconos mt-4" role="navigation" aria-label="Social media links">
+                <a href="https://es.wikipedia.org/wiki/Usuario:Corsario_CL" class="fab fa-wikipedia-w animate-hover" aria-label="Wikipedia profile"></a>
+                <a href="https://www.linkedin.com/in/corsario-cl/" class="fab fa-linkedin animate-hover" aria-label="LinkedIn profile"></a>
+                <a href="https://twitter.com/Corsario_CL" class="fab fa-twitter-square animate-hover" aria-label="Twitter profile"></a>
+                <a href="https://corsario-cl-world-blog.tumblr.com" class="fab fa-tumblr-square animate-hover" aria-label="Tumblr profile"></a>
+                <a href="https://steamcommunity.com/id/Corsario_CL/" class="fab fa-steam-square animate-hover" aria-label="Steam profile"></a>
+                <a href="https://github.com/Corsario-CL" class="fab fa-github animate-hover" aria-label="GitHub profile"></a>
+                <a href="https://open.spotify.com/playlist/5QVYWH0mSYySkAPzLQ5L7z" class="fab fa-spotify animate-hover" aria-label="Spotify playlist"></a>
+                <a href="https://www.instagram.com/corsario_cl/" class="fab fa-instagram animate-hover" aria-label="Instagram profile"></a>
+                <a href="https://es.foursquare.com/omnespsx" class="fab fa-foursquare animate-hover" aria-label="Foursquare profile"></a>
+                <a href="https://cl.pinterest.com/Corsario_CL/" class="fab fa-pinterest-square animate-hover" aria-label="Pinterest profile"></a>
+                <a href="https://www.youtube.com/@Corsario_CL" class="fab fa-youtube-square animate-hover" aria-label="YouTube profile"></a>
+                <a href="https://www.reddit.com/user/xagentpy/" class="fab fa-reddit-square animate-hover" aria-label="Reddit profile"></a>
             </div>
         </div>
     </section>
@@ -170,6 +257,26 @@
         particlesJS.load('particles-js', 'particles.json', function() {
             console.log('particles.js loaded - callback');
         });
+
+        // Función para aplicar el tema
+        function applyTheme(isLight) {
+            document.body.dataset.theme = isLight ? 'light' : 'dark';
+        }
+
+        // Aplicar tema inicial basado en la hora
+        document.addEventListener('DOMContentLoaded', () => {
+            const isLight = isDaytime();
+            applyTheme(isLight);
+        });
+
+        // Actualizar tema automáticamente cuando cambie la hora
+        setInterval(() => {
+            const isLight = isDaytime();
+            if ((isLight && document.body.dataset.theme !== 'light') || 
+                (!isLight && document.body.dataset.theme === 'light')) {
+                applyTheme(isLight);
+            }
+        }, 60000); // Revisar cada minuto
     </script>
 </body>
 
